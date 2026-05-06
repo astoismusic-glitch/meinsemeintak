@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AstroManish | Music Producer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,700&family=Inter:wght@400;500;600;700;800&family=Italiana&family=Noto+Serif+JP:wght@500;700;900&family=Yuji+Syuku&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="visualizer" aria-hidden="true"></canvas>
+  <canvas id="sakura" aria-hidden="true"></canvas>
+  <canvas id="musicNotes" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <a class="brand" href="#home">AstroManish</a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="donate-nav" href="#donate" data-open-donate>Donate please</a>
+      <a href="#upcoming">Upcoming</a>
+      <a href="#about">Bio</a>
+      <a href="#music">Music</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Music Producer | Mixing & Mastering Engineer</p>
+        <h1>AstroManish</h1>
+        <p class="hero-text">2004-born rapper, producer, mixing and mastering engineer from Chandigarh, building big projects across heavy trap, melodic, acoustic, and multiple genre sounds.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://open.spotify.com/artist/1jpZ9Rmt16ImOSEJRJj5rn?si=VWIA7MAyTzemQu_xSzkndw" target="_blank" rel="noreferrer">Listen on Spotify</a>
+          <a class="button donate-button" href="#donate" data-open-donate>Donate please</a>
+          <a class="button ghost" href="https://music.apple.com/in/artist/astromanish/1723091621" target="_blank" rel="noreferrer">Apple Music</a>
+          <a class="button ghost" href="#upcoming">Upcoming Project</a>
+        </div>
+        <div class="artist-details" aria-label="Musical details">
+          <span>808-driven production</span>
+          <span>Vocal mix polish</span>
+          <span>Chandigarh and Mohali based artist</span>
+          <span>Trap, melodic, acoustic</span>
+        </div>
+      </div>
+      <div class="hero-art reveal" aria-label="Anime inspired music visual">
+        <div class="anime-stage">
+          <div class="moon-disc"></div>
+          <div class="torii-lines"></div>
+          <div class="track-aura">
+            <span class="jp-text">音 Mixtape Signal</span>
+            <strong id="heroTrackName">KAUN TERA</strong>
+          </div>
+          <div class="instrument-scene" aria-hidden="true">
+            <span class="electric-guitar"></span>
+            <span class="guitar-neck"></span>
+            <span class="gold-string string-one"></span>
+            <span class="gold-string string-two"></span>
+            <span class="gold-string string-three"></span>
+            <span class="silver-katana"></span>
+            <span class="katana-handle"></span>
+          </div>
+          <div class="kanji-mark" aria-hidden="true">&#38899;</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="section-heading reveal">
+        <p class="eyebrow jp-text">プロフィール</p>
+        <h2>About Artist</h2>
+      </div>
+      <article class="bio-panel reveal">
+        <p><strong>AstroManish</strong> is a 2004 born rapper, music producer, mixing engineer, and mastering engineer from Chandigarh and Mohali. His sound moves between heavy trap, melodic rap, acoustic emotion, dark anime-inspired textures, and multi-genre experiments built for big projects.</p>
+        <div class="bio-tags">
+          <span>2004 born</span>
+          <span>Rapper</span>
+          <span>Producer</span>
+          <span>Mixing engineer</span>
+          <span>Mastering engineer</span>
+          <span>Chandigarh</span>
+          <span>Mohali</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section upcoming-section" id="upcoming">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Next Release</p>
+        <h2>Upcoming</h2>
+      </div>
+
+      <article class="upcoming-panel reveal">
+        <button class="upcoming-trigger" type="button" aria-expanded="false" aria-controls="mixtape-list">
+          <span>
+            <strong>Mein Se Mein Tak</strong>
+            <small>Upcoming mixtape tracklist | 32 tracks</small>
+          </span>
+          <span class="trigger-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="track-drawer" id="mixtape-list">
+          <div class="upcoming-summary">
+            <p class="eyebrow">Mixtape</p>
+            <h3>Mein Se Mein Tak</h3>
+            <p>A long-form AstroManish mixtape with raw freestyles, featured collaborators, emotional cuts, trap drums, melodic pockets, and heavy street-inspired production.</p>
+          </div>
+          <div class="mixtape-visual" aria-hidden="true">
+            <span class="visual-label jp-text">Mein Se Mein Tak track wall</span>
+            <div class="floating-track-names" id="floatingTrackNames"></div>
+          </div>
+          <ol class="tracklist" id="upcomingTracks"></ol>
+        </div>
+      </article>
+    </section>
+
+    <section class="section unreleased-section" id="unreleased">
+      <div class="section-heading reveal">
+        <p class="eyebrow jp-text">未公開</p>
+        <h2>Unreleased Tracks</h2>
+      </div>
+      <article class="unreleased-panel reveal">
+        <button class="unreleased-trigger" type="button" aria-expanded="false" aria-controls="unreleased-list">
+          <span>
+            <strong>Unreleased Track</strong>
+            <small>Free preview vault | 4 tracks</small>
+          </span>
+          <span class="trigger-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="unreleased-drawer" id="unreleased-list">
+          <div class="unreleased-grid">
+            <article class="audio-card">
+              <span class="track-number">01</span>
+              <h3>Untitled 1</h3>
+              <audio controls controlslist="nodownload noplaybackrate" preload="metadata" src="assets/audio/reunion-to-me.mp3"></audio>
+            </article>
+            <article class="audio-card">
+              <span class="track-number">02</span>
+              <h3>Untitled 2</h3>
+              <audio controls controlslist="nodownload noplaybackrate" preload="metadata" src="assets/audio/too-close-to-the-moon.mp3"></audio>
+            </article>
+            <article class="audio-card">
+              <span class="track-number">03</span>
+              <h3>Untitled 3</h3>
+              <audio controls controlslist="nodownload noplaybackrate" preload="metadata" src="assets/audio/28.mp3"></audio>
+            </article>
+            <article class="audio-card">
+              <span class="track-number">04</span>
+              <h3>Untitled 4</h3>
+              <audio controls controlslist="nodownload noplaybackrate" preload="metadata" src="assets/audio/fukk-are-love.mp3"></audio>
+            </article>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section music-section" id="music">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Catalog</p>
+        <h2>Music</h2>
+      </div>
+
+      <div class="platform-links reveal" aria-label="Music profiles">
+        <a href="https://open.spotify.com/artist/1jpZ9Rmt16ImOSEJRJj5rn?si=VWIA7MAyTzemQu_xSzkndw" target="_blank" rel="noreferrer">
+          <span>Spotify</span>
+          <strong>AstroManish profile</strong>
+        </a>
+        <a class="apple-profile-link" href="https://music.apple.com/in/artist/astromanish/1723091621" target="_blank" rel="noreferrer">
+          <span>Apple Music</span>
+          <strong>Stream, save, and follow AstroManish on Apple Music</strong>
+        </a>
+      </div>
+
+      <article class="apple-profile-card reveal">
+        <div>
+          <p class="eyebrow">Apple Music</p>
+          <h3>AstroManish official artist profile</h3>
+          <p>Use Apple Music to follow releases, add tracks to your library, and hear the catalog with full platform-quality playback.</p>
+        </div>
+        <a class="button gold" href="https://music.apple.com/in/artist/astromanish/1723091621" target="_blank" rel="noreferrer">Open Apple Music</a>
+      </article>
+
+      <div class="spotify-embed reveal">
+        <iframe title="AstroManish on Spotify" style="border-radius:12px" src="https://open.spotify.com/embed/artist/1jpZ9Rmt16ImOSEJRJj5rn?utm_source=generator&theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+
+      <div class="music-tabs reveal" role="tablist" aria-label="Music categories">
+        <button class="tab active" type="button" data-tab="albums" role="tab" aria-selected="true">Albums</button>
+        <button class="tab" type="button" data-tab="singles" role="tab" aria-selected="false">Singles</button>
+        <button class="tab" type="button" data-tab="eps" role="tab" aria-selected="false">EPs</button>
+      </div>
+
+      <div class="catalog-grid active" id="albums" role="tabpanel"></div>
+      <div class="catalog-grid" id="singles" role="tabpanel"></div>
+      <div class="catalog-grid" id="eps" role="tabpanel"></div>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Studio Work</p>
+        <h2>Services</h2>
+      </div>
+      <div class="service-grid">
+        <article class="service-card reveal">
+          <div class="service-icon">MP</div>
+          <h3>Music Production</h3>
+          <p>Original beats, arrangement, drums, melodies, and full sonic direction built around your voice and story.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon">MX</div>
+          <h3>Mixing</h3>
+          <p>Clean vocal placement, tuned low-end, effects, depth, and balance so the track feels finished.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon">MS</div>
+          <h3>Mastering</h3>
+          <p>Final loudness, tone, clarity, and streaming-ready polish for Spotify, Apple Music, and more.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="contact-inner reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Work with me</h2>
+        <p>Production, mix, master, custom sound, and collaborations are available.</p>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:astoismusic@gmail.com">astoismusic@gmail.com</a>
+          <a class="button ghost" href="https://music.apple.com/in/artist/astromanish/1723091621" target="_blank" rel="noreferrer">Apple Music</a>
+        </div>
+        <a class="instagram-link" href="https://www.instagram.com/manish.ysl?igsh=MTA0ZWViemNpMTY0Zg%3D%3D&utm_source=qr" target="_blank" rel="noreferrer">
+          <span class="instagram-icon" aria-hidden="true"></span>
+          <span>Instagram</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>AstroManish</p>
+    <div class="footer-links">
+      <a href="https://open.spotify.com/artist/1jpZ9Rmt16ImOSEJRJj5rn?si=VWIA7MAyTzemQu_xSzkndw" target="_blank" rel="noreferrer">Spotify</a>
+      <a href="https://music.apple.com/in/artist/astromanish/1723091621" target="_blank" rel="noreferrer">Apple Music</a>
+      <a href="https://www.instagram.com/manish.ysl?igsh=MTA0ZWViemNpMTY0Zg%3D%3D&utm_source=qr" target="_blank" rel="noreferrer">Instagram</a>
+    </div>
+  </footer>
+
+  <div class="modal" id="trackModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close tracklist" data-close-modal>&times;</button>
+      <p class="eyebrow" id="modalType">Release</p>
+      <h2 id="modalTitle">Tracklist</h2>
+      <ol class="tracklist modal-tracklist" id="modalTracks"></ol>
+    </section>
+  </div>
+
+  <div class="modal donate-modal" id="donateModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-donate></div>
+    <section class="modal-panel donate-panel" role="dialog" aria-modal="true" aria-labelledby="donateTitle">
+      <button class="modal-close" type="button" aria-label="Close donation QR" data-close-donate>&times;</button>
+      <p class="eyebrow">Support AstroManish</p>
+      <h2 id="donateTitle">Donate Please</h2>
+      <p class="donate-copy">Scan the Paytm QR to support the music, unreleased drops, mixing, mastering, and future projects.</p>
+      <div class="qr-frame">
+        <img src="assets/images/paytm-qr.jpeg" alt="Paytm donation QR code for AstroManish">
+      </div>
+      <p class="upi-id">UPI ID: <strong>astro2004@ptyes</strong></p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
